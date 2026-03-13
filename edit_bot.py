@@ -32,10 +32,13 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
 # ============================================
-# ТОКЕН (ВСТАВЬ СВОЙ СЮДА)
+# ТОКЕН (БЕРЁТСЯ ИЗ ПЕРЕМЕННЫХ ОКРУЖЕНИЯ)
 # ============================================
-BOT_TOKEN = "8751624673:AAGZJ86OVRZRhy8hn8Pv19i-8sIEiUQ4Vds"
-ADMIN_ID = 8570314493  # ЗАМЕНИ НА СВОЙ TELEGRAM ID
+BOT_TOKEN = os.getenv('BOT_TOKEN')
+if not BOT_TOKEN:
+    raise ValueError("❌ ОШИБКА: Не задан BOT_TOKEN в переменных окружения!")
+
+ADMIN_ID = 8570314493  # ТВОЙ TELEGRAM ID
 
 # ============================================
 # НАСТРОЙКИ ЛОГИРОВАНИЯ
